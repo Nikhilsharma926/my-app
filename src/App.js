@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{usestate} from 'react'
+import "./App.css"
+import TodoInput from './components/TodoInput';
 
 function App() {
+    const [inputText,setInputText] =usestate('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="input-container">
+<input type="text" 
+className="input-box-todo"
+placeholder="enter your todo"/> 
+onchange={e=>{
+    setInputText(e.target.value)
+}}
+
+<button className="add-btn">+</button>  
+    <div>{inputText}</div>
     </div>
   );
 }
 
-export default App;
+export default App
